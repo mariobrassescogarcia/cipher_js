@@ -6,10 +6,15 @@ function caesarCipher (message, rule) {
 	var array = message.split("");
 	var array_numbers = [];
 	var array_new_message = [];
+	var encrypted_number = rule;
 
-	array.forEach(function(word){
-   array_numbers.push(word.charCodeAt(0)-3);	
-	});
+	array.forEach(function(letter){
+		if ((letter <= "A" && letter >= "Z") || (letter <= "a" && letter >= "z")) {
+			array_numbers.push(letter);
+		} else {array_numbers.push(letter.charCodeAt(0)- encrypted_number);	
+		}		
+	}
+	);
 
 	array_numbers.forEach(function(number){
 		array_new_message.push(String.fromCharCode(number));
@@ -24,7 +29,7 @@ return new_message;
 }
 
 
-var encrypted = caesarCipher("brutus");
+var encrypted = caesarCipher("Et tu, brute?", 3);
 
 console.log(encrypted);
 
