@@ -1,35 +1,30 @@
 
 
-
 function caesarCipher (message, rule) {
 
-	var array = message.split("");
-	var array_numbers = [];
-	var array_new_message = [];
-	var encrypted_number = rule;
-
-	array.forEach(function(letter){
-		if ((letter >= "A" && letter <= "Z") || (letter >= "a" && letter <= "z")) {
-			
-			{array_numbers.push(letter.charCodeAt(0)- encrypted_number);}
-		} else {array_numbers.push(letter);
-		}		
-	});
-
-	array_numbers.forEach(function(number){
-		array_new_message.push(String.fromCharCode(number));
-
-	});
-
-	new_message = array_new_message.join();
+	var new_message = "";
+	var encryption_rule = rule  || -3;
 
 
+	for (var i = 0; i < message.length ; i++) {
 
-return new_message;
-}
+		if ( (message[i] >= "A" && message[i] <= "Z") || (message[i] >= "a" && message[i] <= "z")){
+			var letter = message.charCodeAt(i) + encryption_rule;
+			new_message += String.fromCharCode(letter);
+		}
+
+		else{
+			new_message += message[i];
+		}
+
+	}
+	return new_message;
+	}
 
 
-var encrypted = caesarCipher("Et tu, brute?", 3);
+var encrypted = caesarCipher("Et tu, brute?", 6);
 
 console.log(encrypted);
+
+
 
