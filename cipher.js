@@ -9,8 +9,8 @@ function caesarCipher (message, rule) {
 	for (var i = 0; i < message.length ; i++) {
 
 		if ( (message[i] >= "A" && message[i] <= "Z") || (message[i] >= "a" && message[i] <= "z")){
-			var letter = message.charCodeAt(i) + encryption_rule;
-			new_message += String.fromCharCode(letter);
+			var number = message.charCodeAt(i) + encryption_rule;
+			new_message += String.fromCharCode(number);
 		}
 
 		else{
